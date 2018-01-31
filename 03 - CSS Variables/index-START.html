@@ -22,9 +22,22 @@
 
   <style>
 
-    /*
-      misc styles, nothing to do with CSS variables
-    */
+    :root{
+      /* -- defines the variable */
+      --base: #ffc600;
+      --spacing: 10px;
+      --blur: 10px;
+    }
+
+    img{
+      padding:var(--spacing);
+      background: var(--base);
+      filter:blur(var(--blur));
+    }
+
+    .h1{
+      color: var(--base);
+    }
 
     body {
       text-align: center;
@@ -45,10 +58,22 @@
   </style>
 
   <script>
-    // in progress
+    //start by selecting all inputs on the page
+     const inputs = document.querySelectorAll('.controls input')
 
-    //helllo
+     function handleUpdate(){
+        // console.log(this.dataset) - this will be an OBJECT of the data-attributes
+        //suffix e.g. 'px', we place '||' because some inputs will not have a suffix(i.e. the hexcode)
+        const suffix = this.dataset.sizing || '';
+
+        console.log(this.name)
+        document.documentElement.style.setProperty(`--${this.name}`, this.value +suffix)
+     }
+     // event listener will call handleUpdate() on change and mousemove
+     inputs.forEach( input => input.addEventListener('change', handleUpdate))
+     inputs.forEach( input => input.addEventListener('mousemove', handleUpdate))
   </script>
 
 </body>
 </html>
+

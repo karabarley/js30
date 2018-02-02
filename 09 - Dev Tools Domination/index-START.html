@@ -17,29 +17,72 @@
       p.style.fontSize = '50px';
     }
 
+    // 1. Attribute Modifications - shows you the snippet of code that causes behaviour of the element
+
     // Regular
 
-    // Interpolated
+    console.log('hello')
 
-    // Styled
+    // Interpolated i.e. interpolate variables
+    console.log('I am some great %s string!', '💩')
+    //you can also use 
 
+
+    // Styled %c
+    console.log ('%c chiaa pudding', 'color: red')
     // warning!
+
+    console.warn('disclamer: chia pudding aint for everyone')
 
     // Error :|
 
+    console.error('chai pudding gone wrong')
     // Info
-
+    console.info('Fun fact:A small serving of chia seeds has as much Omega-3 fatty acids in 2 tablespoons as 4 ounces of salmon... and are loaded with fibre 💩')
+    
     // Testing
 
+    const p = document.querySelector('p')
+
+    console.assert(p.classList.contains('chia'), 'Gnarly dude')
+    
     // clearing
+    // console.clear()
 
     // Viewing DOM Elements
-
+    // wahoooo - allows you to view all the methods and properties that live on the DOM element e.g classList, parent, child
+    console.dir(p)
     // Grouping together
 
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`) //start
+
+      console.log(`This is ${dog.name}`)
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} years old`)
+
+      console.groupEnd(`${dog.name}`) //end
+
+    })
     // counting
 
-    // timing
+    console.count('chia')
+    console.count('chia')
+    console.count('pudding')
+    console.count('chia')
+    console.count('chia')
+    console.count('pudding')
+    console.count('pudding')
+
+    // timing - you can start timer
+     console.time('fetching data')// this is starting string
+
+     fetch('link')
+     .then(data => data.json())
+     .then(data => {
+       console.timeEnd('fetching data') //this is the ending string
+       .console.log(data)
+     })
 
   </script>
 </body>

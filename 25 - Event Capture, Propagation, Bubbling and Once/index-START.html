@@ -39,8 +39,24 @@
 
 <button></button>
 <script>
-  //still in progress
+  //Event listeners
+  const divs = document.querySelectorAll('div')
+  // 
+  
+  function logText(e){
+    console.log(this.classList.value)
+    e.stopPropagation(); //stop bubbling !
 
+  }
+
+  divs.forEach(div => div.addEventListener(
+    'click',
+     logText,
+      {capture: false,
+      once: true } //unbinding the eventlistener
+      )) 
+  //capture - is top down (default is false)
+  //bubbling - rippling of event listeners on nested outwards
 </script>
 </body>
 </html>
